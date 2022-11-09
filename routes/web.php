@@ -478,7 +478,7 @@ Route::get('/checkout', function (Request $request) {
     if(PHP_SESSION_NONE==session_status())session_start();
 
     if($amount!==''&&$description!==''&&$email!==''&&$mobile!==''){
-        $merchant_id="6b4fb925-bf95-48b0-bb66-8a987d4999a2";
+        $merchant_id="MyMerchant";
         $call_back_url=full_url($_SERVER)."/done";
 
         $client=new SoapClient("https://de.zarinpal.com/pg/services/WebGate/wsdl",array('encoding'=>'UTF-8'));
@@ -518,7 +518,7 @@ Route::get('/done', function () {
 
 
     if($status!==''&&$authority!==''){
-        $merchant_id="6b4fb925-bf95-48b0-bb66-8a987d4999a2";
+        $merchant_id="MyMerchant";
 
         $client=new SoapClient("https://de.zarinpal.com/pg/services/WebGate/wsdl",array('encoding'=>'UTF-8'));
         $result = $client->PaymentVerification(
